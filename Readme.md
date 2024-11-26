@@ -4,8 +4,27 @@
 
 基于 **OpenAI 的 API key**，做一个 **小说翻译工具**
 
+## **如何使用**
+该系统可以运行在本地Python环境，也可以运行在我们配置的Docker镜像中。
+运行在本地主机的方法：
+1. 确保本地Python环境已经安装了Python Flask和Python openai模块
+2. 配置环境变量API_KEY为你自己可供使用的openai的API key
+3. 运行 ```python3 app.py```
+4. 浏览器访问```127.0.0.1:8080```即可使用该翻译器
 
----
+运行在Docker的方法：
+1. 在当前文件目录中添加一个.env文件，内容如下：
+```API_KEY={your_valid_openai_api_key}```
+2. 在当前文件目录运行```docker build -t flask-app .```
+3. 在当前文件目录运行```docker run -it --rm -p 8080:8080 --env-file .env flask-app```
+4. 在本地主机浏览器访问```127.0.0.1:8080```即可使用该翻译器
+
+## **用法**
+1. 用户输入想要翻译的text，然后点击describe按钮，之后关于这段text的描述就会出现在Styles部分
+2. 用户可以自行修改Styles部分中的描述
+3. 点击Translate按钮，该系统就会基于上述的Styles中的描述来翻译这段text
+4. 点击Generate按钮，该系统就会基于上述的Styles中的描述来生成一段符合该描述的text
+
 
 ## **第一步：明确需求与功能**
 在项目启动前，需要将需求细化并明确。以下是根据你的描述整理出来的功能列表：

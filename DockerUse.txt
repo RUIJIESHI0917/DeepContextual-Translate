@@ -1,5 +1,0 @@
-To build the docker:
-docker build -t flask-app .
-
-To run the docker:
-docker run -it --rm -p 8080:8080 flask-app

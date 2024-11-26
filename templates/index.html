@@ -8,17 +8,45 @@
 <body>
     <div>
         <h1>DeepContextual-Translate</h1>
-        <form action="/translate" method="POST">
+        <form action="/describe" method="POST">
             <label for="textInput">Enter Text to translate:</label><br>
-            <textarea id="textInput" name="textInput" required></textarea><br>
-            <button type="submit">Translate</button>
+            <textarea id="text" name="text" required>{{ request.args.text }}</textarea><br>
+            <button type="submit">Describe</button>
         </form>
     </div>
-    {% if request.args.translated_text %}
     <div class="output">
-        <h2>Translation:</h2>
-        <p>{{ request.args.translated_text }}</p>
+        <h1>Styles</h1>
+        <form action="/translate_or_generate" method="POST">
+            <label for="textInput">Descriptions:</label><br>
+            <input type="hidden" id="input_text" name="input_text" value="{{ request.args.text }}">
+            <textarea id="styles" name="styles" required>{{ request.args.styles }}</textarea><br>
+            <label for="language">Choose a language to translate to:</label><br>
+            <select id="language1" name="language1" required>
+                <option value="English">English</option>
+                <option value="French">French</option>
+                <option value="Spanish">Spanish</option>
+                <option value="German">German</option>
+                <option value="Chinese">Chinese</option>
+                <option value="Japanese">Japanese</option>
+                <option value="Arabic">Arabic</option>
+                <option value="Portuguese">Portuguese</option>
+                <option value="Russian">Russian</option>
+            </select><br><br>
+            <button type="submit" name="action" value="translate">Translate</button>
+            <button type="submit" name="action" value="generate">Generate</button>
+        </form>
     </div>
+    <div>
+    {% if request.args.translation %}
+        <h2>Translation:</h2>
+        <p>{{ request.args.translation }}</p>
     {% endif %}
+    </div>
+    <div>
+    {% if request.args.generate %}
+        <h2>Generation:</h2>
+        <p>{{ request.args.generate }}</p>
+    {% endif %}
+    </div>
 </body>
 </html>
