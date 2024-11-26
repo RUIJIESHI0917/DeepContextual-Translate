@@ -6,7 +6,19 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Welcome to Docker!</h1>
-    <p>This page is served using Flask and Docker.</p>
+    <div>
+        <h1>DeepContextual-Translate</h1>
+        <form action="/translate" method="POST">
+            <label for="textInput">Enter Text to translate:</label><br>
+            <textarea id="textInput" name="textInput" required></textarea><br>
+            <button type="submit">Translate</button>
+        </form>
+    </div>
+    {% if request.args.translated_text %}
+    <div class="output">
+        <h2>Translation:</h2>
+        <p>{{ request.args.translated_text }}</p>
+    </div>
+    {% endif %}
 </body>
 </html>
