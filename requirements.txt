@@ -1,0 +1,3 @@
+# Need to installed Python3 and pip already
+Flask
+openai
