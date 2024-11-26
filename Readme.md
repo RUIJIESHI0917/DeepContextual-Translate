@@ -7,7 +7,7 @@
 ## **如何使用**
 该系统可以运行在本地Python环境，也可以运行在我们配置的Docker镜像中。
 运行在本地主机的方法：
-1. 确保本地Python环境已经安装了Python Flask和Python openai模块
+1. 确保本地Python环境已经安装了Python Flask和Python openai模块，如果没有，请使用```pip install -r requirement.txt```指令来安装所需的模块
 2. 配置环境变量API_KEY为你自己可供使用的openai的API key
 3. 运行 ```python3 app.py```
 4. 浏览器访问```127.0.0.1:8080```即可使用该翻译器
