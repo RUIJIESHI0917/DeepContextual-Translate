@@ -1,6 +1,6 @@
 **Created on 2024/11/25**
 
-**Contributor: Ruijie Shi, Ruhao Xin, Gpt-4o-2024-11-20**
+**Contributors: Ruijie Shi, Ruhao Xin, Gpt-4o-2024-11-20**
 
 基于 **OpenAI 的 API key**，做一个 **小说翻译工具**
 
