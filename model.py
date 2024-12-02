@@ -3,10 +3,10 @@ import os
 
 class TranslateGPTModel:
     def __init__(self):
-        self.model = "gpt-3.5-turbo"
+        self.model = "gpt-4o-mini"
         self.api_key = os.getenv("API_KEY")
         print(self.api_key)
-        self.temperature = 0.7 
+        self.temperature = 0.4
 
         self.client = OpenAI(api_key=self.api_key)
     
@@ -40,7 +40,7 @@ class TranslateGPTModel:
             temperature = self.temperature,
             messages = [
                 {"role": "system", "content": "You are a professional translator that can translate text based on some descriptions. Remeber, Please just give me the tranlation and no other things. No prefix please. "},
-                {"role": "user", "content": f"Please firstly analyze the text based on the following descriptions: {adjectives}. And then based on these adjectives, translate the text: {text} into {language}."},
+                {"role": "user", "content": f"Y. Please firstly understand the given text: {text} and how it can be related to these given descriptions: {adjectives}. Then, you may rewrite the text based on based on these given descriptions and your own understanding, finally translate the text into {language}"},
             ]
         )
         translation = response.choices[0].message.content
